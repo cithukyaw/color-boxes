@@ -7,7 +7,7 @@ class Box extends Component {
     super(props);
 
     this.state = {
-      color: choice(this.props.colors),
+      color: choice(),
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -17,7 +17,7 @@ class Box extends Component {
     let newColor;
 
     do {
-      newColor = choice(this.props.colors);
+      newColor = choice();
     } while (newColor === this.state.color);
 
     this.setState({ color: newColor });
@@ -30,6 +30,7 @@ class Box extends Component {
   render() {
     return (
       <div className="Box" style={{backgroundColor: this.state.color}} onClick={this.handleClick}>
+        {this.state.color}
       </div>
     )
   }
